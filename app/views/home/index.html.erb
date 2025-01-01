@@ -1,0 +1,41 @@
+<p style="color: green"><%= notice %></p>
+
+<p class="<%= Theme::THEME_LABEL_STYLING %>">Signed as <%= Current.user.email %></p>
+
+<h2 class="<%= Theme::THEME_LABEL_STYLING %>">Login and verification </h2>
+
+<div>
+  <%= link_to "Change password", edit_password_path, class: Theme::THEME_ANCHOR_STYLING %>
+</div>
+
+<div>
+  <%= link_to "Change email address", edit_identity_email_path, class: Theme::THEME_ANCHOR_STYLING  %>
+</div>
+
+<div>
+  <%= link_to "Two-Factor Authentication", new_two_factor_authentication_profile_totp_path, class: Theme::THEME_ANCHOR_STYLING  %>
+</div>
+
+<% if Current.user.otp_required_for_sign_in? %>
+  <div><%= link_to "Recovery Codes", two_factor_authentication_profile_recovery_codes_path, class: Theme::THEME_ANCHOR_STYLING  %></div>
+<% end %>
+
+<div>
+  <%= link_to "Send invitation", new_invitation_path, class: Theme::THEME_ANCHOR_STYLING  %>
+</div>
+
+<%= button_to "Signin as last user", user_masquerade_path(User.last), class: Theme::THEME_ANCHOR_STYLING  %>
+
+<h2 class="<%= Theme::THEME_LABEL_STYLING %>">Access history</h2>
+
+<div>
+  <%= link_to "Devices & Sessions", sessions_path, class: Theme::THEME_ANCHOR_STYLING  %>
+</div>
+
+<div>
+  <%= link_to "Activity Log", authentications_events_path, class: Theme::THEME_ANCHOR_STYLING  %>
+</div>
+
+<br>
+
+<%= button_to "Log out", Current.session, method: :delete, class: Theme::THEME_ANCHOR_STYLING  %>

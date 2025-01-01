@@ -1,0 +1,6 @@
+DEBUG
+<%= month_calendar events: [] do |date, events| %>
+  <% events.each do |event| %>
+    EVENT: <%= event %>
+  <% end %>
+<% end %>
