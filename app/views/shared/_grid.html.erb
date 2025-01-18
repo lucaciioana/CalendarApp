@@ -1,13 +1,13 @@
 <div class="mx-auto max-w-7xl">
-  <div class="bg-gray-900 py-10">
+  <div class="dark:bg-gray-900 py-10">
     <div class="px-4 sm:px-6 lg:px-8" data-controller="grid">
       <div class="sm:flex sm:items-center flex w-full">
         <div class="sm:flex-auto flex-auto">
           <% unless title.nil? %>
-            <h1 class="text-base font-semibold leading-6 text-white"><%= title %></h1>
+            <h1 class="text-base font-semibold leading-6 dark:text-white text-gray-900"><%= title %></h1>
           <% end %>
           <% unless desc.nil? %>
-            <p class="mt-2 text-sm text-gray-300"><%= desc %></p>
+            <p class="mt-2 text-sm dark:text-gray-300 text-gray-900"><%= desc %></p>
           <% end %>
         </div>
         <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none flex flex-row flex-initial">
@@ -29,7 +29,7 @@
       <div class="mt-8 flow-root">
         <div class="mx-4 -my-2 overflow-x-auto sm:mx-6 lg:mx-8">
           <div class="inline-block min-w-full h-[600px] py-2 align-middle">
-            <table class="min-w-full divide-y divide-gray-700 table-auto max-h-84">
+            <table class="min-w-full divide-y dark:divide-gray-700  divide-gray-300 table-auto max-h-84">
               <thead class="text-3xl font-bold">
               <tr>
                 <% if render_checkboxes %>
@@ -45,17 +45,17 @@
                   </th>
                 <% end %>
                 <% headers.each do |header| %>
-                  <th scope="col" class="sticky top-0 z-10 dark:bg-gray-900 px-3 py-5 text-left text-gray-900 dark:text-white sm:pl-0">
+                  <th scope="col" class="sticky top-0 z-10 dark:bg-gray-900 bg-white px-3 py-5 text-left text-gray-900 dark:text-white sm:pl-0">
                     <%= header.to_s.capitalize %></th>
                 <% end %>
                 <% unless headers.nil? %>
-                  <th scope="col" class="relative sticky top-0 z-10 dark:bg-gray-900 py-5 pl-3 pr-4 sm:pr-0">
+                  <th scope="col" class="relative sticky top-0 z-10 dark:bg-gray-900 bg-white py-5 pl-3 pr-4 sm:pr-0">
                     <span class="sr-only">Actions</span>
                   </th>
                 <% end %>
               </tr>
               </thead>
-              <tbody class="divide-y divide-gray-800">
+              <tbody class="divide-y dark:divide-gray-800 divide-gray-300">
               <% unless data.nil? %>
                 <% data.each do |record| %>
                   <tr>
@@ -72,15 +72,20 @@
                                             action: 'change->grid#toggleParent'
                                           } %>
                       </td>
-                    <% end %>
+                    <% end %> 
                     <% headers.each do |header| %>
-                      <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0"><%= record[header] %></td>
+                      <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium dark:text-white text-gray-900 sm:pl-0"><%= record[header] %></td>
                     <% end %>
                     <% if render_actions %>
-                      <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
+                      <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium dark:text-white text-gray-900 sm:pl-0">
                         <% actions.each do |action, enabled| %>
                           <% if enabled %>
-                            <%= action %>
+                          <% case action %>
+                          <% when :edit %>
+                          <%= link_to 'Show', send("#{model.singularize}_path",record.id) %>
+                          <% when :delete %>
+                          <%= link_to 'Delete', send("#{model.singularize}_path",record.id) %>
+                            <% end %>
                           <% end %>
                         <% end %>
                       </td>

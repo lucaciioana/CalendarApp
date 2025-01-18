@@ -14,13 +14,11 @@ class User < ApplicationRecord
   has_many :sign_in_tokens, dependent: :destroy
   has_many :auth_events, dependent: :destroy
 
-  validates :first_name, presence: true
-
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, confirmation: true, allow_nil: true, length: { in: 5..64 },
             format: {
               with: /\A(?=.*[A-Z])(?=.*[\W]).+\z/,
-              message: 'must contain at least one uppercase letter and one symbol'
+              message: "must contain at least one uppercase letter and one symbol"
             }
 
   normalizes :email, with: -> { _1.strip.downcase }
@@ -45,7 +43,7 @@ class User < ApplicationRecord
     auth_events.create! action: "password_changed"
   end
 
-  after_update if: [:verified_previously_changed?, :verified?] do
+  after_update if: [ :verified_previously_changed?, :verified? ] do
     auth_events.create! action: "email_verified"
   end
 end

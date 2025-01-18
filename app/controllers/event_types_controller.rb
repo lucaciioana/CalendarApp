@@ -12,7 +12,7 @@ class EventTypesController < ApplicationController
     @event_type = EventType.new(event_type_params)
     respond_to do |format|
       if @event_type.save
-        format.html { redirect_to event_types_path, notice: 'Event type added successfully' }
+        format.html { redirect_to ensure_proper_redirect, notice: 'Event type added successfully' }
         format.json { render :index, status: :created, location: @event_type}
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,6 +38,10 @@ class EventTypesController < ApplicationController
   end
 
   private
+
+  def ensure_proper_redirect
+    request.referer.include?("event_types") ? event_types_path : root_path
+  end
 
   def event_type_params
     params.require(:event_type).permit(:name, :price).merge({ creator: Current.user })
