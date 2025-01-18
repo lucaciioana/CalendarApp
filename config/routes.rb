@@ -37,6 +37,8 @@ Rails.application.routes.draw do
   # root "home#index"
 
   resources :events
+  resources :event_types, except: :destroy
+  delete 'event_types/destroy', controller: :event_types, action: :destroy
   root "events#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -50,4 +52,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
 end

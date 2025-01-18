@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2024_10_23_114554) do
+ActiveRecord::Schema[8.1].define(version: 2025_01_01_203738) do
   create_table "auth_events", charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "action", null: false
@@ -23,6 +23,7 @@ ActiveRecord::Schema[8.1].define(version: 2024_10_23_114554) do
 
   create_table "event_types", charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
     t.string "name"
+    t.float "price"
     t.bigint "creator_id", null: false
     t.boolean "is_deleted"
     t.datetime "created_at", null: false
@@ -31,13 +32,9 @@ ActiveRecord::Schema[8.1].define(version: 2024_10_23_114554) do
   end
 
   create_table "events", charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
-    t.string "name"
     t.bigint "event_type_id", null: false
-    t.datetime "start"
-    t.integer "duration"
-    t.datetime "end"
+    t.datetime "date"
     t.bigint "creator_id", null: false
-    t.json "schedule"
     t.boolean "is_deleted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

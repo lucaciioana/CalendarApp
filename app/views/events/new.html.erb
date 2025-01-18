@@ -1,20 +1,19 @@
 <%#= form_with model: @event, local: true do |form| %>
-  <%#= render 'shared/modal', modal_content: form, title: 'test' %>
+<%#= render 'shared/modal', modal_content: form, title: 'test' %>
 <%# end %>
 
 <%= render 'shared/modal', title: 'TEST TITLE' do %>
-  <%= form_with model: @event, local: true do |form| %>
+  <%= form_with model: @event, local: true, data: { controller: 'events' } do |form| %>
     <div class="form-group">
       <%= form.text_field :name, class: "form-control" %>
     </div>
     <div class="form-group">
       <%= form.text_field :tag, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= form.datetime_local_field :start, class: "form-control color-scheme-dark" %>
-    </div>
-    <div class="form-group">
-      <%= form.datetime_local_field :end, class: "form-control color-scheme-dark" %>
-    </div>
+
   <% end %>
+
+  <p class="<%= Theme::THEME_ERROR_STYLING %>"><%= notice %></p>
+  <p class="<%= Theme::THEME_ERROR_STYLING %>"><%= alert %></p>
+
 <% end %>

@@ -14,3 +14,7 @@
         color-scheme: dark;
     }
 }
+
+.custom-input {
+    max-height: 2rem !important;
+}

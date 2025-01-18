@@ -33,7 +33,11 @@ module Theme
 
     # TEXT_FIELD_STYLE = "bg-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white".freeze
     TEXT_FIELD_STYLE = "block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 #{THEME_TEXT_STYLING}".freeze
-    SELECT_FIELD_STYLE = "block bg-gray-200 text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none focus:bg-white".freeze
+    # SELECT_FIELD_STYLE = "block bg-gray-200 text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none focus:bg-white".freeze
+
+    "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 dark:bg-white/5 dark:text-white dark:ring-white/10 dark:focus:ring-indigo-500 dark:[&_*]:text-black"
+    # SELECT_FIELD_STYLE = "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 dark:bg-white/5 dark:text-white dark:ring-white/10 dark:focus:ring-indigo-500 dark:[&_*]:text-black"
+    SELECT_FIELD_STYLE = "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 dark:bg-gray-800 dark:text-white dark:ring-white/10 dark:focus:ring-indigo-500"
     # SUBMIT_BUTTON_STYLE = "shadow bg-yellow-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded hover:bg-yellow-700".freeze
     SUBMIT_BUTTON_STYLE = "flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 #{THEME_BTN_STYLING}".freeze
 

@@ -1,0 +1,11 @@
+<% title = 'Add Event Type' %>
+<%= render 'shared/modal', title: title do %>
+  <%= form_with id: title, model: @event_type, local: true, data: { controller: 'event_types' } do |form| %>
+    <div class="form-group">
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.text_field :price, class: "form-control" %>
+    </div>
+  <% end %>
+<% end %>

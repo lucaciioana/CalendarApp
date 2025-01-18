@@ -25,14 +25,14 @@
   <body class="<%= Theme::BODY_CLASS %>">
   <div class="min-h-full">
     <%= render partial: "shared/navbar" %>
-    <div class="py-10">
+    <div class="">
       <!--          <header>-->
       <!--            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">-->
       <!--              <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">Calendar</h1>-->
       <!--            </div>-->
       <!--          </header>-->
       <main>
-        <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <!-- Your content -->
           <%= turbo_frame_tag "modal" %>
           <%= yield %>

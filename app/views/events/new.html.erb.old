@@ -1,0 +1,67 @@
+<%#= form_with model: @event, local: true do |form| %>
+<%#= render 'shared/modal', modal_content: form, title: 'test' %>
+<%# end %>
+
+<%= render 'shared/modal', title: 'TEST TITLE' do %>
+  <%= form_with model: @event, local: true, data: { controller: 'events' } do |form| %>
+    <div class="form-group">
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.text_field :tag, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.select :repeatable, [["No", false], ['Yes', true]], {}, class: "form-control",
+                      data: {
+                        action: "change->events#toggleRepeatableSection",
+                        events_target: "select"
+                      } %>
+    </div>
+    <%= content_tag :div, data: {events_target: "repeatable"},  class: "form-group hidden" do %>
+      <!--    <div class="form-group hidden">-->
+        <div class="mt-6 space-y-6">
+          <div class="flex items-center">
+            <input id="day" name="notification-method" type="radio" checked class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+            <%#= form.text_field :repeatable, type: :number, class: "w-2" %>
+            <div class="ml-3 flex w-full text-sm font-medium leading-6 text-gray-900 dark:text-white">Every
+            <%= text_field_tag 'debug', '1', class: 'w-3 custom-input rounded-md border-0  shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset bg-white dark:bg-gray-900'%>
+              Day
+            </div>
+<!--            <label for="day" class="ml-3 flex w-full text-sm font-medium leading-6 text-gray-900 dark:text-white">Every-->
+              <%#= form.text_field :repeatable, type: :number, class: "w-2" %>
+<!--              Day-->
+<!--            </label>-->
+          </div>
+          <div class="mt-2 flex rounded-md shadow-sm">
+            <span class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 px-3 text-gray-500 sm:text-sm">Every</span>
+            <input type="text" name="company-website" id="company-website" class="block max-w-2 min-w-0 flex-1 rounded-none border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="www.example.com">
+            <span class="inline-flex items-center rounded-r-md border border-l-0 border-gray-300 px-3 text-gray-500 sm:text-sm">Day</span>
+          </div>
+
+          <div class="flex items-center">
+            <input id="sms" name="notification-method" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+            <label for="sms" class="ml-3 block text-sm font-medium leading-6 text-gray-900 dark:text-white">Phone (SMS)</label>
+          </div>
+          <div class="flex items-center">
+            <input id="push" name="notification-method" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+            <label for="push" class="ml-3 block text-sm font-medium leading-6 text-gray-900 dark:text-white">Push notification</label>
+          </div>
+        </div>
+      <div class="form-group">
+        DEBUG 1
+      </div>
+      <div class="form-group">
+        DEBUG 2
+      </div>
+      <div class="form-group">
+        DEBUG 3
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= form.datetime_local_field :start, class: "form-control color-scheme-dark" %>
+    </div>
+    <div class="form-group">
+      <%= form.datetime_local_field :end, class: "form-control color-scheme-dark" %>
+    </div>
+  <% end %>
+<% end %>

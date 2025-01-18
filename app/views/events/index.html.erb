@@ -1,6 +1,15 @@
-DEBUG
-<%= month_calendar events: [] do |date, events| %>
-  <% events.each do |event| %>
-    EVENT: <%= event %>
+<%= turbo_frame_tag 'calendar' do %>
+  <%= month_calendar events: [], event_types: @event_types do |date, events| %>
+    <% events.each do |event| %>
+      EVENT: <%= event %>
+    <% end %>
   <% end %>
 <% end %>
+
+<!--<div id="events-calendar">-->
+<%#= render partial: "events/calendar", locals: { events: @events } %>
+<!--</div>-->
+
+<%#= month_calendar events: events, previous: previous_month_link, next: next_month_link do |date, events| %>
+<%#= date %>
+<%# end %>

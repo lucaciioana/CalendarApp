@@ -39,7 +39,8 @@ module Calendar
     end
 
     def classes_for_calendar_day(day)
-      today = Date.current
+      # today = Date.current
+      today = Date.today
       # Always include: "relative py-2 px-3"
       div = ['relative py-2 px-3']
       time = []
@@ -149,6 +150,10 @@ module Calendar
 
     def additional_days
       options.fetch(:number_of_days, 4) - 1
+    end
+
+    def today_view_params
+      { start_date_param => Time.current.to_date.iso8601 }
     end
 
   end

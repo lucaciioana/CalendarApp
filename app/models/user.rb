@@ -14,8 +14,10 @@ class User < ApplicationRecord
   has_many :sign_in_tokens, dependent: :destroy
   has_many :auth_events, dependent: :destroy
 
+  validates :first_name, presence: true
+
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :password, allow_nil: true, length: { in: 5..64 },
+  validates :password, confirmation: true, allow_nil: true, length: { in: 5..64 },
             format: {
               with: /\A(?=.*[A-Z])(?=.*[\W]).+\z/,
               message: 'must contain at least one uppercase letter and one symbol'
