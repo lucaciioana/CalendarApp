@@ -72,7 +72,7 @@
                                             action: 'change->grid#toggleParent'
                                           } %>
                       </td>
-                    <% end %> 
+                    <% end %>
                     <% headers.each do |header| %>
                       <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium dark:text-white text-gray-900 sm:pl-0"><%= record[header] %></td>
                     <% end %>
@@ -80,12 +80,15 @@
                       <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium dark:text-white text-gray-900 sm:pl-0">
                         <% actions.each do |action, enabled| %>
                           <% if enabled %>
-                          <% case action %>
-                          <% when :edit %>
-                          <%= link_to 'Show', send("#{model.singularize}_path",record.id) %>
-                          <% when :delete %>
-                          <%= link_to 'Delete', send("#{model.singularize}_path",record.id) %>
-                            <% end %>
+                            <% case action %>
+                        <% when :edit %>
+                              <%= button_to "Show", { controller: controller_name, action: :show, id: record.id }, method: :get,
+                                            data: { turbo_frame: 'modal' } %>
+                            <% when :delete %>
+                              <%= link_to 'Delete', send("#{model.singularize}_path", record.id) %>
+                            <% else
+                                 # type code here
+                               end %>
                           <% end %>
                         <% end %>
                       </td>

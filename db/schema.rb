@@ -35,9 +35,8 @@ ActiveRecord::Schema[8.1].define(version: 2025_01_01_203738) do
     t.datetime "created_at", null: false
     t.bigint "creator_id", null: false
     t.datetime "date"
+    t.string "description"
     t.bigint "event_type_id", null: false
-    t.boolean "is_deleted"
-    t.string "name"
     t.datetime "updated_at", null: false
     t.index ["creator_id"], name: "index_events_on_creator_id"
     t.index ["event_type_id"], name: "index_events_on_event_type_id"

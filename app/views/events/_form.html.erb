@@ -1,0 +1,14 @@
+<%= form_with id: title, model: @event, local: true, data: { controller: 'events' } do |form| %>
+  <div class="form-group">
+    <%= form.select :event_type_id, EventType.created_by(Current.user).collect { |et| [et.name, et.id] }, { class: 'form-control max-w-full' } %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.date_field :date, class: 'color-scheme-dark' %>
+  </div>
+
+<% end %>

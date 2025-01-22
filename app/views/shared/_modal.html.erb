@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "modal" do %>
-  <%= tag.div data: {
+  <%= tag.div id:'modal-content', data: {
     controller: 'modals',
     modals_target: 'modal',
     action: 'keydown@window->modals#closeHandler',

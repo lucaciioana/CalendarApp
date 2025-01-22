@@ -1,7 +1,3 @@
 <%= turbo_frame_tag 'calendar' do %>
-  <%= month_calendar events: [], event_types: @event_types do |date, events| %>
-    <% events.each do |event| %>
-      EVENT: <%= event %>
-    <% end %>
-  <% end %>
+  <%= render partial: 'events/calendar' %>
 <% end %>

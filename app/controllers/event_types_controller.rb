@@ -1,5 +1,6 @@
 class EventTypesController < ApplicationController
   include ApplicationHelper
+  before_action :set_model, only: [:show, :update]
 
   def index
     grid_payload
@@ -34,7 +35,28 @@ class EventTypesController < ApplicationController
   end
 
   def show
+  end
 
+  def update
+    respond_to do |format|
+      if @event_type.update(event_type_params)
+        grid_payload
+        format.html { redirect_to ensure_proper_redirect, notice: 'Event type updated successfully' }
+        format.json { render :index, status: :created, location: @event_type }
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update(
+              'content',
+              **grid(title: @title, desc: @desc, headers: @headers, data: @data, model: @model)
+            ),
+            turbo_stream.remove('modal-content')
+          ]
+        end
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @event_type.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
@@ -71,4 +93,8 @@ class EventTypesController < ApplicationController
     @model = EventType
   end
 
+  def set_model
+    id = params.fetch(:id)
+    @event_type = EventType.find_by(id:)
+  end
 end

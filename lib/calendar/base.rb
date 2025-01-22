@@ -42,8 +42,8 @@ module Calendar
       # today = Date.current
       today = Date.today
       # Always include: "relative py-2 px-3"
-      div = ['relative py-2 px-3']
-      time = []
+      div = ['relative py-2 px-3 min-h-24']
+      time = ['']
       # Is current month, include: "bg-white"
       div << "bg-white dark:bg-gray-900 dark:text-white" if start_date.month == day.month
       # Is not current month, include: "bg-gray-50 text-gray-500"
