@@ -26,6 +26,10 @@ module ApplicationHelper
     opts[:actions].each do |k, v|
       puts "#{k} == edit => #{k == :edit}"
     end
-    render partial: "shared/grid", locals: { **opts, errors: }
+    { partial: "shared/grid", locals: { **opts, errors: } }
+  end
+
+  def render_grid(**options)
+    render grid(**options)
   end
 end

@@ -1,7 +1,8 @@
 class EventTypesController < ApplicationController
+  include ApplicationHelper
+
   def index
-    @data = EventType.created_by(Current.user)
-    @headers = ['name', 'price']
+    grid_payload
   end
 
   def new
@@ -12,11 +13,22 @@ class EventTypesController < ApplicationController
     @event_type = EventType.new(event_type_params)
     respond_to do |format|
       if @event_type.save
+        grid_payload
         format.html { redirect_to ensure_proper_redirect, notice: 'Event type added successfully' }
-        format.json { render :index, status: :created, location: @event_type}
+        format.json { render :index, status: :created, location: @event_type }
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update(
+              'content',
+              **grid(title: @title, desc: @desc, headers: @headers, data: @data, model: @model)
+            ),
+            turbo_stream.remove('modal')
+          ]
+        end
+
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity}
+        format.json { render json: @event_type.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,6 +61,14 @@ class EventTypesController < ApplicationController
 
   def event_type_destroy_params
     params.permit(ids: [])
+  end
+
+  def grid_payload
+    @data = EventType.created_by(Current.user)
+    @headers = ['name', 'price']
+    @title = 'Event Types'
+    @desc = 'Event type - used when adding events'
+    @model = EventType
   end
 
 end

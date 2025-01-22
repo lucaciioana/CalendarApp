@@ -104,7 +104,7 @@ module Theme
 
       label_classes = label_opts[:class] || "block text-sm font-medium leading-6 #{THEME_LABEL_STYLING}"
       # label_classes = label_opts[:class] || "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-      label_classes += " text-yellow-800 dark:text-yellow-400" if field_options[:disabled]
+      label_classes += " text-yellow-800 dark:text-yellow-400" if field_options.is_a?(Hash) && field_options[:disabled]
       # label_classes += " text-yellow-800 dark:text-yellow-400" if field_options[:disabled]
       label(object_method, text, {
         class: label_classes

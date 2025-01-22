@@ -33,9 +33,7 @@ Rails.application.routes.draw do
     resource :password_reset, only: [:new, :edit, :create, :update]
   end
 
-  get "auth/debug", to: 'home#index'
-  # root "home#index"
-
+  get "profile", to: 'profile#index'
   resources :events
   resources :event_types, except: :destroy
   delete 'event_types/destroy', controller: :event_types, action: :destroy

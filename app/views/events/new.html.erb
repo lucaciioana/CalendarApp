@@ -1,14 +1,18 @@
-<%#= form_with model: @event, local: true do |form| %>
-<%#= render 'shared/modal', modal_content: form, title: 'test' %>
-<%# end %>
-
-<%= render 'shared/modal', title: 'TEST TITLE' do %>
-  <%= form_with model: @event, local: true, data: { controller: 'events' } do |form| %>
+<% title = 'Add Event' %>
+<%= render 'shared/modal', title: title do %>
+  <%= form_with id: title, model: @event, local: true, data: { controller: 'events' } do |form| %>
     <div class="form-group">
       <%= form.text_field :name, class: "form-control" %>
     </div>
+    <!--    <div class="form-group">-->
+    <%#= form.text_field :tag, class: "form-control" %>
+    <!--    </div>-->
     <div class="form-group">
-      <%= form.text_field :tag, class: "form-control" %>
+      <%= form.select :event_type_id, EventType.created_by(Current.user).collect { |et| [et.name, et.id] }, { class: 'form-control' } %>
+    </div>
+
+    <div class="form-group">
+      <%= form.date_field :date, class: 'color-scheme-dark' %>
     </div>
 
   <% end %>

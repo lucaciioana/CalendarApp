@@ -2,8 +2,8 @@ import {Controller} from "@hotwired/stimulus"
 
 // Connects to data-controller="navbar"
 export default class extends Controller {
+    static targets = ['profile']
     connect() {
-        console.log('debug!');
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
         document.documentElement.classList.toggle(
             'dark',
@@ -17,4 +17,10 @@ export default class extends Controller {
     resetTheme(arg) {
         localStorage.removeItem('theme');
     }
+
+
+    toggleProfile() {
+
+    }
+
 }
