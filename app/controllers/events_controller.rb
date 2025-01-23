@@ -22,8 +22,7 @@ class EventsController < ApplicationController
         format.html { redirect_to root_path, notice: 'Event added successfully' }
         format.json { render root_path, status: :created, location: @event }
         format.turbo_stream do
-          @event_types = EventType.created_by(Current.user)
-          @events = Event.where(event_type: @event_types)
+          ensure_locals
           render turbo_stream: [
             turbo_stream.update(
               'calendar',
@@ -72,7 +71,20 @@ class EventsController < ApplicationController
     rescue Error => e
       render events_path, status: :unprocessable_entity
     end
-    redirect_to events_path, notice: 'Events removed successfully'
+    # respond_to do |format|
+    #   format.html { redirect_to events_path, notice: 'Events removed successfully' }
+    #   format.turbo_stream do
+    #     ensure_locals
+    #     render turbo_stream: [
+    #       turbo_stream.update(
+    #         'calendar',
+    #         partial: 'events/calendar', locals: { events: EventType.includes(:events).created_by(Current.user) }
+    #       ),
+    #       turbo_stream.remove('modal-content')
+    #     ]
+    #   end
+    redirect_to root_path, notice: 'Events removed successfully'
+    flash.discard
   end
 
   private
@@ -91,6 +103,7 @@ class EventsController < ApplicationController
     @events = Event.includes(:event_type)
                    .where(event_type: @event_types, date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
     @summary = @events
+                 .where(date: start_date.beginning_of_month..start_date.end_of_month)
                  .joins(:event_type)
                  .select('event_type_id, event_types.name as type_name, event_types.price as price, COUNT(events.id) as count, SUM(event_types.price) as total_price')
                  .group('event_types.id')

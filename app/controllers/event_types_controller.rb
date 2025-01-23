@@ -65,7 +65,6 @@ class EventTypesController < ApplicationController
                .where(id: event_type_destroy_params[:ids])
                .delete_all
     rescue Error => e
-      puts "e: #{e}"
       render event_types_path, status: :unprocessable_entity
     end
     redirect_to event_types_path, notice: 'Event types removed successfully'

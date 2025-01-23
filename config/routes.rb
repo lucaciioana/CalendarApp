@@ -34,9 +34,10 @@ Rails.application.routes.draw do
   end
 
   get "profile", to: 'profile#index'
-  resources :events
+  resources :events, except: :destroy
   resources :event_types, except: :destroy
   delete 'event_types/destroy', controller: :event_types, action: :destroy
+  delete 'events/destroy', controller: :events, action: :destroy
   root "events#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

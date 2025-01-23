@@ -4,7 +4,7 @@
       <div>
         <%#= event.event_type.name %>
         <%= button_to event.event_type.name, { controller: :events, action: :show, id: event.id }, method: :get,
-                      data: { turbo_frame: 'modal' } %>
+                      data: { turbo_frame: 'modal', hasDelete: true } %>
       </div>
     <% end %>
   </div>
