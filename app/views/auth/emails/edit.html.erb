@@ -1,43 +1,42 @@
-<p style="color: red"><%= alert %></p>
+<div class="mt-10">
+  <div class="mb-10">
+    <% if Current.user.verified? %>
+      <h1 class="<%= Theme::THEME_LABEL_STYLING %> text-3xl font-bold mb-6">Change your email</h1>
+    <% else %>
+      <h1 class="<%= Theme::THEME_LABEL_STYLING %> text-3xl font-bold mb-6">Verify your email</h1>
+      <p class="<%= Theme::THEME_LABEL_STYLING %>">We sent a verification email to the address below. Check that email
+        and
+        follow those instructions to confirm it's your email address.</p>
+      <p><%= button_to "Re-send verification email", auth_email_verification_path,
+                       class: 'rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500' %></p>
+    <% end %>
+  </div>
+  <%= form_with(url: auth_email_path, method: :patch) do |form| %>
+    <% if @user.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-<% if Current.user.verified? %>
-  <h1>Change your email</h1>
-<% else %>
-  <h1>Verify your email</h1>
-  <p>We sent a verification email to the address below. Check that email and follow those instructions to confirm it's your email address.</p>
-  <p><%= button_to "Re-send verification email", auth_email_verification_path %></p>
-<% end %>
+        <ul>
+          <% @user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-<%= form_with(url: auth_email_path, method: :patch) do |form| %>
-  <% if @user.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <div>
+      <%= form.email_field :email, required: true, autofocus: true %>
+    </div>
 
-      <ul>
-        <% @user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div>
+      <%= form.password_field :password_challenge, required: true, autocomplete: "current-password", label: { text: 'Validate email change with password' } %>
+    </div>
+
+    <div class="mt-2">
+      <%= form.submit "Save changes" %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :email, "New email", style: "display: block" %>
-    <%= form.email_field :email, required: true, autofocus: true %>
+  <div class="mt-10">
+    <%= link_to "Back", :back, class: "#{Theme::THEME_LABEL_STYLING}" %>
   </div>
-
-  <div>
-    <%= form.label :password_challenge, style: "display: block" %>
-    <%= form.password_field :password_challenge, required: true, autocomplete: "current-password" %>
-  </div>
-
-  <div>
-    <%= form.submit "Save changes" %>
-  </div>
-<% end %>
-
-<br>
-
-<div>
-  <%= link_to "Back", root_path %>
 </div>

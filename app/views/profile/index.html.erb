@@ -1,29 +1,31 @@
-<p style="color: green"><%= notice %></p>
+<div class="mt-10">
+  <div class="grid gap-y-8 grid-cols-1">
+    <div>
+      <h1 class="<%= Theme::THEME_LABEL_STYLING %> text-3xl font-bold">Signed as <%= Current.user.email %></h1>
+    </div>
+    <div>
+      <h2 class="<%= Theme::THEME_LABEL_STYLING %>">Login and verification </h2>
+      <div>
+        <%= link_to "Change password", edit_auth_password_path, class: Theme::THEME_ANCHOR_STYLING %>
+      </div>
+      <div>
+        <%= link_to "Change email address", edit_auth_email_path, class: Theme::THEME_ANCHOR_STYLING %>
+      </div>
 
-<p class="<%= Theme::THEME_LABEL_STYLING %>">Signed as <%= Current.user.email %></p>
+    </div>
+    <div>
+      <h2 class="<%= Theme::THEME_LABEL_STYLING %>">Access history</h2>
 
-<h2 class="<%= Theme::THEME_LABEL_STYLING %>">Login and verification </h2>
+      <div>
+        <%= link_to "Devices & Sessions", sessions_path, class: Theme::THEME_ANCHOR_STYLING %>
+      </div>
 
-<div>
-  <%= link_to "Change password", edit_auth_password_path, class: Theme::THEME_ANCHOR_STYLING %>
+      <div>
+        <%= link_to "Activity Log", auth_events_path, class: Theme::THEME_ANCHOR_STYLING %>
+      </div>
+    </div>
+    <div>
+      <%= button_to "Log out", Current.session, method: :delete, class: Theme::THEME_ANCHOR_STYLING %>
+    </div>
+  </div>
 </div>
-
-<div>
-  <%= link_to "Change email address", edit_auth_email_path, class: Theme::THEME_ANCHOR_STYLING  %>
-</div>
-
-
-
-<h2 class="<%= Theme::THEME_LABEL_STYLING %>">Access history</h2>
-
-<div>
-  <%= link_to "Devices & Sessions", sessions_path, class: Theme::THEME_ANCHOR_STYLING  %>
-</div>
-
-<div>
-  <%= link_to "Activity Log", auth_events_path, class: Theme::THEME_ANCHOR_STYLING  %>
-</div>
-
-<br>
-
-<%= button_to "Log out", Current.session, method: :delete, class: Theme::THEME_ANCHOR_STYLING  %>
