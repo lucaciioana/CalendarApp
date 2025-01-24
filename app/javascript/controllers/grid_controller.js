@@ -32,6 +32,8 @@ export default class extends Controller {
             this.parentTarget.checked = false
         } else {
             this.parentTarget.checked = true
+            const count = this.childTargets.filter(x => x.checked).length
+            this.deleteTarget.disabled = count === 0
         }
 
     }

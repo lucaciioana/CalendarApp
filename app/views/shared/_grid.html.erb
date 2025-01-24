@@ -29,8 +29,8 @@
             <table class="min-w-full divide-y dark:divide-gray-700  divide-gray-300 table-auto max-h-84">
               <thead class="text-3xl font-bold">
               <tr>
-                <% if render_checkboxes %>
-                  <th scope="col" class="relative w-4 sticky top-0 z-10 dark:bg-gray-900">
+                <% if render_checkboxes && !data.blank? %>
+                  <th scope="col" class="relative h-4 w-4 sticky top-0 z-10 dark:bg-gray-900">
                     <%= check_box_tag 'select all',
                                       nil,
                                       nil,
