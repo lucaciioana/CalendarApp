@@ -32,8 +32,10 @@ class SessionsController < ApplicationController
   end
 
   def is_authenticated?
-    if cookies.signed[:session_token].present?
-      authenticate
+    cookies.signed[:session_token].present?
+    session_record = Session.find_by_id(cookies.signed[:session_token]) if cookies.signed[:session_token].present?
+    if session_record.present?
+      Current.session = session_record
       return true
     end
     false
