@@ -15,15 +15,15 @@
     <% end %>
 
     <div>
-      <%= form.password_field :password_challenge, required: true, autofocus: true, autocomplete: "current-password" %>
+      <%= form.password_field :password_challenge, required: true, autofocus: true, autocomplete: "current-password", label: {text: 'Current Password'} %>
     </div>
 
     <div>
-      <%= form.password_field :password, required: true, autocomplete: "new-password" %>
+      <%= form.password_field :password, required: true, autocomplete: "new-password", label: {text: 'New Password'}  %>
     </div>
 
     <div>
-      <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password" %>
+      <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password", label: {text: 'New Password Confirmation'}  %>
     </div>
 
     <div class="mt-2">
