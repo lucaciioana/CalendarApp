@@ -19,12 +19,14 @@ class EventsController < ApplicationController
         format.json { render root_path, status: :created, location: @event }
         format.turbo_stream do
           ensure_locals
+          flash.now[:notice] = "Event: #{@event.event_type.name} added successfully!"
           render turbo_stream: [
             turbo_stream.update(
               'calendar',
               partial: 'events/calendar', locals: { events: EventType.includes(:events).created_by(Current.user) }
             ),
-            turbo_stream.remove('modal-content')
+            turbo_stream.remove('modal-content'),
+            turbo_stream.prepend("flash", **toast(type: :success))
           ]
         end
       else
@@ -44,12 +46,14 @@ class EventsController < ApplicationController
         format.json { render :index, status: :created, location: @event }
         format.turbo_stream do
           ensure_locals
+          flash.now[:notice] = "Event: #{@event.event_type.name} updated successfully!"
           render turbo_stream: [
             turbo_stream.update(
               'calendar',
               partial: 'events/calendar', locals: { events: EventType.includes(:events).created_by(Current.user) }
             ),
-            turbo_stream.remove('modal-content')
+            turbo_stream.remove('modal-content'),
+            turbo_stream.prepend("flash", **toast(type: :success))
           ]
         end
       else
@@ -60,15 +64,30 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    begin
-      Event.created_by(Current.user)
-           .where(id: event_destroy_params[:ids])
-           .delete_all
-    rescue Error => e
-      render events_path, status: :unprocessable_entity
+    respond_to do |format|
+      begin
+        events = Event.includes(:event_type)
+                      .created_by(Current.user)
+                      .where(id: event_destroy_params[:ids])
+        deleted_events = events.collect { |event| event.event_type.name }
+        events.delete_all
+      rescue Exception => e
+        format.html { render events_path, status: :unprocessable_entity }
+      end
+      format.turbo_stream do
+        ensure_locals
+        flash.now[:notice] = "Event: #{deleted_events.join(', ')} removed successfully"
+        render turbo_stream: [
+          turbo_stream.update(
+            'calendar',
+            partial: 'events/calendar', locals: { events: EventType.includes(:events).created_by(Current.user) }
+          ),
+          turbo_stream.remove('modal-content'),
+          turbo_stream.prepend("flash", **toast(type: :success))
+        ]
+        # redirect_to root_path
+      end
     end
-    redirect_to root_path, notice: 'Events removed successfully'
-    flash.discard
   end
 
   private
@@ -78,7 +97,7 @@ class EventsController < ApplicationController
   end
 
   def event_destroy_params
-    params.permit(ids: [])
+    params.permit(:_method, :authenticity_token, ids: [])
   end
 
   def ensure_locals

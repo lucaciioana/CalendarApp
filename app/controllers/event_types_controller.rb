@@ -1,5 +1,4 @@
 class EventTypesController < ApplicationController
-  include ApplicationHelper
   before_action :set_model, only: [:show, :update]
 
   def index
