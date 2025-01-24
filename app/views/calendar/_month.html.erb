@@ -62,7 +62,7 @@
           <% end %>
         </div>
         <div class="flex bg-gray-200 text-xs leading-6 text-gray-700 lg:flex-auto dark:bg-gray-700">
-          <div class="hidden w-full lg:grid lg:grid-cols-7 lg:grid-rows-<%= date_range.each_slice(7).size %>> lg:gap-px">
+          <div class="w-full grid grid-cols-7 grid-rows-<%= date_range.each_slice(7).size %> gap-px">
             <% date_range.each_slice(7) do |week| %>
               <% week.each do |day| %>
                 <% styles = calendar.classes_for_calendar_day(day) %>
