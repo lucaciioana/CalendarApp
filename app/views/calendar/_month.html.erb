@@ -1,5 +1,5 @@
 <div class="lg:flex lg:h-full flex-row">
-  <div class="flex flex-auto flex-col">
+  <div class="flex w-full flex-col">
     <header class="flex items-center justify-between px-6 py-4 lg:flex-none">
       <h1 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
         <time><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></time>
@@ -87,7 +87,7 @@
       </div>
     </div>
   </div>
-  <div class="flex flex-initial flex-col items-center justify-center px-6 pt-[4.1rem] h-full ">
+  <div class="flex flex-col items-center justify-center px-6 pt-[4.1rem] h-full w-1/4">
     <h1 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
       <%= t('date.month_names')[start_date.month] %> Summary:
     </h1>
