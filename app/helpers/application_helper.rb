@@ -22,11 +22,26 @@ module ApplicationHelper
     errors.push "Missing required parameter: headers" if options[:headers].blank?
     errors.push "Missing required parameter: model" if opts[:model].blank?
     opts[:model] = opts[:model].name.underscore unless opts[:model].is_a?(String)
-
-    opts[:actions].each do |k, v|
-      puts "#{k} == edit => #{k == :edit}"
-    end
     { partial: "shared/grid", locals: { **opts, errors: } }
+  end
+
+  def toast(**options)
+    defaults = {
+      auto_hide: true,
+      duration: 5000,
+      type: :success,
+      color: 'text-gray-900'
+    }
+    if options[:type]
+      case options[:type]
+      when :error
+        defaults[:color] = 'text-red-500'
+      when :success
+        defaults[:color] = 'text-green-500'
+      end
+    end
+    opts = defaults.merge(**options)
+    { partial: "shared/flash", locals: { **opts } }
   end
 
   def render_grid(**options)

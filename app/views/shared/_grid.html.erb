@@ -11,9 +11,6 @@
           <% end %>
         </div>
         <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none flex flex-row flex-initial">
-          <!--          <button type="button" class="block rounded-md bg-indigo-500 px-3 py-2 text-center text-sm font-semibold text-white hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Add-->
-          <!--            user-->
-          <!--          </button>-->
           <%= button_to "Add #{title}", { controller: controller_name, action: :new }, method: :get,
                         data: { turbo_frame: 'modal' }, class: 'ml-6 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500' %>
           <%= button_to "Delete", { controller: controller_name, action: 'destroy' },
@@ -21,7 +18,7 @@
                         method: :delete,
                         remote: true,
                         disabled: true,
-                        data: { grid_target: 'delete' },
+                        data: { grid_target: 'delete', turbo_confirm: 'Are you sure you want to delete?' },
                         form: { id: 'bulk' },
                         class: 'ml-6 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 disabled:opacity-50' %>
         </div>
@@ -82,12 +79,16 @@
                           <% if enabled %>
                             <% case action %>
                         <% when :edit %>
-                              <%= button_to "Show", { controller: controller_name, action: :show, id: record.id }, method: :get,
+                              <%= button_to "Edit", { controller: controller_name, action: :show, id: record.id }, method: :get,
                                             data: { turbo_frame: 'modal' } %>
                             <% when :delete %>
-                              <%= link_to 'Delete', send("#{model.singularize}_path", record.id) %>
+                              <%= button_to 'Delete', url_for(controller: controller_name, action: 'destroy', ids: [record.id]),
+                                            id: 'delete',
+                                            method: :delete,
+                                            remote: true,
+                                            data: { turbo_frame: "_top", turbo_confirm: 'Are you sure you want to delete?' } %>
+                              <%#= link_to 'Delete', send("#{model.singularize}_path", record.id) %>
                             <% else
-                                 # type code here
                                end %>
                           <% end %>
                         <% end %>

@@ -25,7 +25,6 @@
   <body class="<%= Theme::BODY_CLASS %>">
   <div class="min-h-full">
     <%= render partial: "shared/navbar" %>
-    <div class="">
       <!--          <header>-->
       <!--            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">-->
       <!--              <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">Calendar</h1>-->
@@ -38,6 +37,8 @@
           <%= yield %>
         </div>
       </main>
+    <div id="flash" aria-live="assertive" class="pointer-events-none fixed inset-0 flex flex-col items-end px-4 py-6 sm:items-start sm:p-6">
+      <%= render partial: "shared/flash" %>
     </div>
   </div>
   </body>

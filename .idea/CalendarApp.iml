@@ -26,17 +26,17 @@
     </content>
     <orderEntry type="jdk" jdkName="Remote: ruby-3.3.5-p100" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="actioncable (v8.1.0.alpha@79f7c9, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionmailbox (v8.1.0.alpha@79f7c9, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionmailer (v8.1.0.alpha@79f7c9, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionpack (v8.1.0.alpha@79f7c9, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actiontext (v8.1.0.alpha@79f7c9, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionview (v8.1.0.alpha@79f7c9, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activejob (v8.1.0.alpha@79f7c9, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activemodel (v8.1.0.alpha@79f7c9, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activerecord (v8.1.0.alpha@79f7c9, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activestorage (v8.1.0.alpha@79f7c9, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activesupport (v8.1.0.alpha@79f7c9, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actioncable (v8.0.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionmailbox (v8.0.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionmailer (v8.0.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionpack (v8.0.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actiontext (v8.0.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionview (v8.0.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activejob (v8.0.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activemodel (v8.0.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activerecord (v8.0.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activestorage (v8.0.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activesupport (v8.0.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.7, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ast (v2.4.2, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="authentication-zero (v4.0.3, Remote: ruby-3.3.5-p100) [gem]" level="application" />
@@ -66,10 +66,9 @@
     <orderEntry type="library" scope="PROVIDED" name="globalid (v1.2.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hashie (v5.0.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.14.7, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="ice_cube (v0.17.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="importmap-rails (v2.1.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.8.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="irb (v1.15.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="irb (v1.15.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.13.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v2.9.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kamal (v2.4.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
@@ -86,7 +85,7 @@
     <orderEntry type="library" scope="PROVIDED" name="net-imap (v0.5.5, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-pop (v0.1.2, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-protocol (v0.2.2, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="net-scp (v4.0.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="net-scp (v4.1.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-sftp (v4.0.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-smtp (v0.5.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-ssh (v7.3.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
@@ -110,10 +109,10 @@
     <orderEntry type="library" scope="PROVIDED" name="rack-session (v2.1.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v2.2.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rackup (v2.2.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rails (v8.1.0.alpha@79f7c9, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails (v8.0.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.2.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.6.2, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="railties (v8.1.0.alpha@79f7c9, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="railties (v8.0.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rainbow (v3.1.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.2.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v6.11.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
@@ -123,7 +122,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rotp (v6.3.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rqrcode (v2.2.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rqrcode_core (v1.2.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rubocop (v1.70.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubocop (v1.71.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop-ast (v1.37.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop-minitest (v0.36.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop-performance (v1.23.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
@@ -140,7 +139,7 @@
     <orderEntry type="library" scope="PROVIDED" name="sshkit (v1.23.2, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stimulus-rails (v1.3.4, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stringio (v3.1.2, Remote: ruby-3.3.5-p100) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="tailwindcss-rails (v3.3.0, Remote: ruby-3.3.5-p100) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tailwindcss-rails (v3.3.1, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tailwindcss-ruby (v3.4.17, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.3.2, Remote: ruby-3.3.5-p100) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thruster (v0.1.10, Remote: ruby-3.3.5-p100) [gem]" level="application" />
@@ -172,6 +171,7 @@
         <option value="benchmark" />
         <option value="channel" />
         <option value="controller" />
+        <option value="erb:authentication" />
         <option value="erb:controller" />
         <option value="erb:mailer" />
         <option value="erb:scaffold" />
@@ -201,6 +201,7 @@
         <option value="test_unit:generator" />
         <option value="test_unit:install" />
         <option value="test_unit:mailbox" />
+        <option value="test_unit:plugin" />
       </list>
     </option>
     <option name="myGenerators">
@@ -212,6 +213,7 @@
         <option value="benchmark" />
         <option value="channel" />
         <option value="controller" />
+        <option value="erb:authentication" />
         <option value="erb:controller" />
         <option value="erb:mailer" />
         <option value="erb:scaffold" />
@@ -241,6 +243,7 @@
         <option value="test_unit:generator" />
         <option value="test_unit:install" />
         <option value="test_unit:mailbox" />
+        <option value="test_unit:plugin" />
       </list>
     </option>
   </component>
@@ -447,9 +450,9 @@
                 <subtasks>
                   <RakeTaskImpl description="Run the &quot;down&quot; for a given migration VERSION" fullCommand="db:migrate:down" id="down" />
                   <RakeTaskImpl description="Roll back the database one migration and re-migrate up (options: STEP=x, VERSION=x)" fullCommand="db:migrate:redo" id="redo" />
-                  <RakeTaskImpl description="Resets your database using your migrations for the current environment" fullCommand="db:migrate:reset" id="reset" />
                   <RakeTaskImpl description="Display status of migrations" fullCommand="db:migrate:status" id="status" />
                   <RakeTaskImpl description="Run the &quot;up&quot; for a given migration VERSION" fullCommand="db:migrate:up" id="up" />
+                  <RakeTaskImpl description="" fullCommand="db:migrate:reset" id="reset" />
                 </subtasks>
               </RakeTaskImpl>
               <RakeTaskImpl description="Run setup if database does not exist, or run migrations if it does" fullCommand="db:prepare" id="prepare" />

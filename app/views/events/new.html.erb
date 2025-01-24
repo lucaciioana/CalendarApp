@@ -1,5 +1,5 @@
 <% title = 'Add Event' %>
-<%= render 'shared/modal', title: title, record: @event do %>
+<%= render 'shared/modal', title: title, record: @event, deleteButtonVisible: false do %>
   <%= render 'form', title: %>
   <p class="<%= Theme::THEME_ERROR_STYLING %>"><%= notice %></p>
   <p class="<%= Theme::THEME_ERROR_STYLING %>"><%= alert %></p>

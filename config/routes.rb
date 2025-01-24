@@ -18,9 +18,6 @@ Rails.application.routes.draw do
     resource :passwordless, only: [:new, :edit, :create]
     resource :sudo, only: [:new, :create]
   end
-  namespace :authentications do
-    resources :events, only: :index
-  end
   get "sign_in", to: "sessions#new"
   post "sign_in", to: "sessions#create"
   get "sign_up", to: "registrations#new"

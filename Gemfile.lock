@@ -1,31 +1,29 @@
-GIT
-  remote: https://github.com/rails/rails.git
-  revision: 79f7c97ae57df2edda66265fef4944a50268284e
-  branch: main
+GEM
+  remote: https://rubygems.org/
   specs:
-    actioncable (8.1.0.alpha)
-      actionpack (= 8.1.0.alpha)
-      activesupport (= 8.1.0.alpha)
+    actioncable (8.0.1)
+      actionpack (= 8.0.1)
+      activesupport (= 8.0.1)
       nio4r (~> 2.0)
       websocket-driver (>= 0.6.1)
       zeitwerk (~> 2.6)
-    actionmailbox (8.1.0.alpha)
-      actionpack (= 8.1.0.alpha)
-      activejob (= 8.1.0.alpha)
-      activerecord (= 8.1.0.alpha)
-      activestorage (= 8.1.0.alpha)
-      activesupport (= 8.1.0.alpha)
+    actionmailbox (8.0.1)
+      actionpack (= 8.0.1)
+      activejob (= 8.0.1)
+      activerecord (= 8.0.1)
+      activestorage (= 8.0.1)
+      activesupport (= 8.0.1)
       mail (>= 2.8.0)
-    actionmailer (8.1.0.alpha)
-      actionpack (= 8.1.0.alpha)
-      actionview (= 8.1.0.alpha)
-      activejob (= 8.1.0.alpha)
-      activesupport (= 8.1.0.alpha)
+    actionmailer (8.0.1)
+      actionpack (= 8.0.1)
+      actionview (= 8.0.1)
+      activejob (= 8.0.1)
+      activesupport (= 8.0.1)
       mail (>= 2.8.0)
       rails-dom-testing (~> 2.2)
-    actionpack (8.1.0.alpha)
-      actionview (= 8.1.0.alpha)
-      activesupport (= 8.1.0.alpha)
+    actionpack (8.0.1)
+      actionview (= 8.0.1)
+      activesupport (= 8.0.1)
       nokogiri (>= 1.8.5)
       rack (>= 2.2.4)
       rack-session (>= 1.0.1)
@@ -33,35 +31,35 @@ GIT
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
       useragent (~> 0.16)
-    actiontext (8.1.0.alpha)
-      actionpack (= 8.1.0.alpha)
-      activerecord (= 8.1.0.alpha)
-      activestorage (= 8.1.0.alpha)
-      activesupport (= 8.1.0.alpha)
+    actiontext (8.0.1)
+      actionpack (= 8.0.1)
+      activerecord (= 8.0.1)
+      activestorage (= 8.0.1)
+      activesupport (= 8.0.1)
       globalid (>= 0.6.0)
       nokogiri (>= 1.8.5)
-    actionview (8.1.0.alpha)
-      activesupport (= 8.1.0.alpha)
+    actionview (8.0.1)
+      activesupport (= 8.0.1)
       builder (~> 3.1)
       erubi (~> 1.11)
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
-    activejob (8.1.0.alpha)
-      activesupport (= 8.1.0.alpha)
+    activejob (8.0.1)
+      activesupport (= 8.0.1)
       globalid (>= 0.3.6)
-    activemodel (8.1.0.alpha)
-      activesupport (= 8.1.0.alpha)
-    activerecord (8.1.0.alpha)
-      activemodel (= 8.1.0.alpha)
-      activesupport (= 8.1.0.alpha)
+    activemodel (8.0.1)
+      activesupport (= 8.0.1)
+    activerecord (8.0.1)
+      activemodel (= 8.0.1)
+      activesupport (= 8.0.1)
       timeout (>= 0.4.0)
-    activestorage (8.1.0.alpha)
-      actionpack (= 8.1.0.alpha)
-      activejob (= 8.1.0.alpha)
-      activerecord (= 8.1.0.alpha)
-      activesupport (= 8.1.0.alpha)
+    activestorage (8.0.1)
+      actionpack (= 8.0.1)
+      activejob (= 8.0.1)
+      activerecord (= 8.0.1)
+      activesupport (= 8.0.1)
       marcel (~> 1.0)
-    activesupport (8.1.0.alpha)
+    activesupport (8.0.1)
       base64
       benchmark (>= 0.3)
       bigdecimal
@@ -74,32 +72,6 @@ GIT
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
-    rails (8.1.0.alpha)
-      actioncable (= 8.1.0.alpha)
-      actionmailbox (= 8.1.0.alpha)
-      actionmailer (= 8.1.0.alpha)
-      actionpack (= 8.1.0.alpha)
-      actiontext (= 8.1.0.alpha)
-      actionview (= 8.1.0.alpha)
-      activejob (= 8.1.0.alpha)
-      activemodel (= 8.1.0.alpha)
-      activerecord (= 8.1.0.alpha)
-      activestorage (= 8.1.0.alpha)
-      activesupport (= 8.1.0.alpha)
-      bundler (>= 1.15.0)
-      railties (= 8.1.0.alpha)
-    railties (8.1.0.alpha)
-      actionpack (= 8.1.0.alpha)
-      activesupport (= 8.1.0.alpha)
-      irb (~> 1.13)
-      rackup (>= 1.0.0)
-      rake (>= 12.2)
-      thor (~> 1.0, >= 1.2.2)
-      zeitwerk (~> 2.6)
-
-GEM
-  remote: https://rubygems.org/
-  specs:
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
@@ -148,13 +120,12 @@ GEM
     hashie (5.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    ice_cube (0.17.0)
     importmap-rails (2.1.0)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.8.0)
-    irb (1.15.0)
+    irb (1.15.1)
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
@@ -186,7 +157,6 @@ GEM
     marcel (1.0.4)
     matrix (0.4.2)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.8)
     minitest (5.25.4)
     msgpack (1.7.5)
     mysql2 (0.5.6)
@@ -197,7 +167,7 @@ GEM
       net-protocol
     net-protocol (0.2.2)
       timeout
-    net-scp (4.0.0)
+    net-scp (4.1.0)
       net-ssh (>= 2.6.5, < 8.0.0)
     net-sftp (4.0.0)
       net-ssh (>= 5.0.0, < 8.0.0)
@@ -205,9 +175,6 @@ GEM
       net-protocol
     net-ssh (7.3.0)
     nio4r (2.7.4)
-    nokogiri (1.18.2)
-      mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
     nokogiri (1.18.2-aarch64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.18.2-aarch64-linux-musl)
@@ -264,6 +231,20 @@ GEM
       rack (>= 1.3)
     rackup (2.2.1)
       rack (>= 3)
+    rails (8.0.1)
+      actioncable (= 8.0.1)
+      actionmailbox (= 8.0.1)
+      actionmailer (= 8.0.1)
+      actionpack (= 8.0.1)
+      actiontext (= 8.0.1)
+      actionview (= 8.0.1)
+      activejob (= 8.0.1)
+      activemodel (= 8.0.1)
+      activerecord (= 8.0.1)
+      activestorage (= 8.0.1)
+      activesupport (= 8.0.1)
+      bundler (>= 1.15.0)
+      railties (= 8.0.1)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -271,6 +252,14 @@ GEM
     rails-html-sanitizer (1.6.2)
       loofah (~> 2.21)
       nokogiri (>= 1.15.7, != 1.16.7, != 1.16.6, != 1.16.5, != 1.16.4, != 1.16.3, != 1.16.2, != 1.16.1, != 1.16.0.rc1, != 1.16.0)
+    railties (8.0.1)
+      actionpack (= 8.0.1)
+      activesupport (= 8.0.1)
+      irb (~> 1.13)
+      rackup (>= 1.0.0)
+      rake (>= 12.2)
+      thor (~> 1.0, >= 1.2.2)
+      zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.2.1)
     rdoc (6.11.0)
@@ -284,7 +273,7 @@ GEM
       chunky_png (~> 1.0)
       rqrcode_core (~> 1.0)
     rqrcode_core (1.2.0)
-    rubocop (1.70.0)
+    rubocop (1.71.0)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -342,8 +331,6 @@ GEM
     sqlite3 (2.5.0-arm-linux-gnu)
     sqlite3 (2.5.0-arm-linux-musl)
     sqlite3 (2.5.0-arm64-darwin)
-    sqlite3 (2.5.0-x86-linux-gnu)
-    sqlite3 (2.5.0-x86-linux-musl)
     sqlite3 (2.5.0-x86_64-darwin)
     sqlite3 (2.5.0-x86_64-linux-gnu)
     sqlite3 (2.5.0-x86_64-linux-musl)
@@ -356,10 +343,9 @@ GEM
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.1.2)
-    tailwindcss-rails (3.3.0)
+    tailwindcss-rails (3.3.1)
       railties (>= 7.0.0)
-      tailwindcss-ruby
-    tailwindcss-ruby (3.4.17)
+      tailwindcss-ruby (~> 3.0)
     tailwindcss-ruby (3.4.17-aarch64-linux)
     tailwindcss-ruby (3.4.17-arm-linux)
     tailwindcss-ruby (3.4.17-arm64-darwin)
@@ -404,9 +390,6 @@ PLATFORMS
   arm-linux-gnu
   arm-linux-musl
   arm64-darwin
-  x86-linux
-  x86-linux-gnu
-  x86-linux-musl
   x86_64-darwin
   x86_64-linux-gnu
   x86_64-linux-musl
@@ -418,7 +401,6 @@ DEPENDENCIES
   brakeman
   capybara
   debug
-  ice_cube (~> 0.17.0)
   importmap-rails
   jbuilder
   kamal
@@ -427,7 +409,7 @@ DEPENDENCIES
   omniauth-rails_csrf_protection
   propshaft
   puma (>= 5.0)
-  rails!
+  rails
   rotp
   rqrcode
   rubocop-rails-omakase
@@ -437,7 +419,7 @@ DEPENDENCIES
   solid_queue
   sqlite3 (>= 2.1)
   stimulus-rails
-  tailwindcss-rails
+  tailwindcss-rails (= 3.3.1)
   thruster
   turbo-rails
   tzinfo-data

@@ -1,10 +1,9 @@
-<%= month_calendar events: @events, event_types: @event_types do |_, events| %>
+<%= month_calendar events: @events do |_, events| %>
   <div class="flex flex-col w-full">
     <% events.each do |event| %>
       <div>
-        <%#= event.event_type.name %>
         <%= button_to event.event_type.name, { controller: :events, action: :show, id: event.id }, method: :get,
-                      data: { turbo_frame: 'modal', hasDelete: true } %>
+                      data: { turbo_frame: 'modal' } %>
       </div>
     <% end %>
   </div>

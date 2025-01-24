@@ -1,108 +1,115 @@
-<div class="lg:flex lg:h-full lg:flex-col">
-  <header class="flex items-center justify-between px-6 py-4 lg:flex-none">
-    <h1 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
-      <time><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></time>
-    </h1>
-    <div class="flex items-center">
-      <div class="relative flex items-center rounded-md bg-white dark:bg-gray-900 shadow-sm md:items-stretch">
-        <%= link_to calendar.url_for_previous_view,
-                    data: { turbo_frame: 'calendar' },
-                    class: "flex h-9 w-12 items-center justify-center rounded-l-md border-y border-l border-gray-300 pr-1 text-gray-400 hover:text-gray-500 focus:relative md:w-9 md:pr-0 md:hover:bg-gray-50 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-700 dark:border-gray-700" do %>
-          <span class="sr-only">Previous month</span>
-          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd"/>
-          </svg>
-        <% end %>
-        <%= link_to calendar.url_for_today_view, data: { turbo_frame: 'calendar' },
-                    class: 'h-9 items-center justify-center hidden border-y border-gray-300 px-3.5 text-sm font-semibold text-gray-900 hover:bg-gray-50 focus:relative md:flex dark:bg-gray-900 dark:text-white dark:hover:bg-gray-700 dark:border-gray-700' do %>
-          Today
-        <% end %>
-
-        <span class="relative -mx-px h-5 w-px bg-gray-300 md:hidden"></span>
-        <%= link_to calendar.url_for_next_view,
-                    method: :get, data: { turbo_frame: 'calendar' },
-                    class: 'flex h-9 w-12 items-center justify-center rounded-r-md border-y border-r border-gray-300 pl-1 text-gray-400 hover:text-gray-500 focus:relative md:w-9 md:pl-0 md:hover:bg-gray-50 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-700 dark:border-gray-700' do %>
-          <span class="sr-only">Next month</span>
-          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd"/>
-          </svg>
-        <% end %>
-      </div>
-      <div class="hidden md:ml-4 md:flex md:items-center dark:bg-gray-900 ">
-
-        <div class="ml-6 h-6 w-px bg-gray-300"></div>
-        <%= button_to "Add Event", new_event_path, method: :get, data: { turbo_frame: 'modal' },
-                      class: 'ml-6 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500' %>
-
-        <%= button_to "Add Event Type", new_event_type_path, method: :get, data: { turbo_frame: 'modal' },
-                      class: 'ml-6 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500' %>
-      </div>
-      <div class="relative ml-6 md:hidden">
-        <button type="button" class="-mx-2 flex items-center rounded-full border border-transparent p-2 text-gray-400 hover:text-gray-500" id="menu-0-button" aria-expanded="false" aria-haspopup="true">
-          <span class="sr-only">Open menu</span>
-          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path d="M3 10a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM8.5 10a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM15.5 8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
-          </svg>
-        </button>
-        <div class="absolute right-0 z-10 mt-3 w-36 origin-top-right divide-y divide-gray-100 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-0-button" tabindex="-1">
-        </div>
-      </div>
-    </div>
-  </header>
-  <div class="flex flex-row">
-    <div class="shadow ring-1 dark:ring-gray-700 ring-black ring-opacity-5 lg:flex lg:flex-auto w-full lg:flex-col">
-      <div class="grid grid-cols-7 gap-px border-b border-gray-300 dark:border-gray-700 bg-gray-200 dark:bg-gray-700 text-center text-xs font-semibold leading-6 text-gray-700 lg:flex-none">
-        <% date_range.slice(0, 7).each do |day| %>
-          <div class="flex justify-center bg-white py-2 dark:bg-gray-900 dark:text-white">
-            <% label = t('date.abbr_day_names')[day.wday] %>
-            <span><%= label.first %></span>
-            <span class="sr-only sm:not-sr-only"><%= label[1..-1] %></span>
-          </div>
-        <% end %>
-      </div>
-      <div class="flex bg-gray-200 text-xs leading-6 text-gray-700 lg:flex-auto dark:bg-gray-700">
-        <div class="hidden w-full lg:grid lg:grid-cols-7 lg:grid-rows-<%= date_range.each_slice(7).size %>> lg:gap-px">
-          <% date_range.each_slice(7) do |week| %>
-            <% week.each do |day| %>
-              <% styles = calendar.classes_for_calendar_day(day) %>
-              <%= content_tag :div, class: styles[:div] do %>
-                <div class="flex w-full items-center justify-center">
-                  <%= content_tag :time, class: styles[:time], datetime: day do %>
-                    <%= day.day %>
-                  <% end %>
-                </div>
-                <% instance_exec(day, calendar.sorted_events_for(day), &passed_block) %>
-                <%# if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
-                <%# capture_haml(day, sorted_events.fetch(day, []), &block) %>
-                <%# else %>
-                <%# block.call day, sorted_events.fetch(day, []) %>
-                <%# end %>
-              <% end %>
-            <% end %>
+<div class="lg:flex lg:h-full flex-row">
+  <div class="flex flex-auto flex-col">
+    <header class="flex items-center justify-between px-6 py-4 lg:flex-none">
+      <h1 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
+        <time><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></time>
+      </h1>
+      <div class="flex items-center">
+        <div class="relative flex items-center rounded-md bg-white dark:bg-gray-900 shadow-sm md:items-stretch">
+          <%= link_to calendar.url_for_previous_view,
+                      data: { turbo_frame: 'calendar' },
+                      class: "flex h-9 w-12 items-center justify-center rounded-l-md border-y border-l border-gray-300 pr-1 text-gray-400 hover:text-gray-500 focus:relative md:w-9 md:pr-0 md:hover:bg-gray-50 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-700 dark:border-gray-700" do %>
+            <span class="sr-only">Previous month</span>
+            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd"/>
+            </svg>
+          <% end %>
+          <%= link_to calendar.url_for_today_view, data: { turbo_frame: 'calendar' },
+                      class: 'h-9 items-center justify-center hidden border-y border-gray-300 px-3.5 text-sm font-semibold text-gray-900 hover:bg-gray-50 focus:relative md:flex dark:bg-gray-900 dark:text-white dark:hover:bg-gray-700 dark:border-gray-700' do %>
+            Today
           <% end %>
 
+          <span class="relative -mx-px h-5 w-px bg-gray-300 md:hidden"></span>
+          <%= link_to calendar.url_for_next_view,
+                      method: :get, data: { turbo_frame: 'calendar' },
+                      class: 'flex h-9 w-12 items-center justify-center rounded-r-md border-y border-r border-gray-300 pl-1 text-gray-400 hover:text-gray-500 focus:relative md:w-9 md:pl-0 md:hover:bg-gray-50 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-700 dark:border-gray-700' do %>
+            <span class="sr-only">Next month</span>
+            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd"/>
+            </svg>
+          <% end %>
+        </div>
+        <div class="hidden md:ml-4 md:flex md:items-center dark:bg-gray-900 ">
+
+          <div class="ml-6 h-6 w-px bg-gray-300"></div>
+          <%= button_to "Add Event", new_event_path, method: :get, data: { turbo_frame: 'modal' },
+                        class: 'ml-6 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500' %>
+
+          <%= button_to "Add Event Type", new_event_type_path, method: :get, data: { turbo_frame: 'modal' },
+                        class: 'ml-6 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500' %>
+        </div>
+        <div class="relative ml-6 md:hidden">
+          <button type="button" class="-mx-2 flex items-center rounded-full border border-transparent p-2 text-gray-400 hover:text-gray-500" id="menu-0-button" aria-expanded="false" aria-haspopup="true">
+            <span class="sr-only">Open menu</span>
+            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path d="M3 10a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM8.5 10a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM15.5 8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
+            </svg>
+          </button>
+          <div class="absolute right-0 z-10 mt-3 w-36 origin-top-right divide-y divide-gray-100 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-0-button" tabindex="-1">
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="flex flex-row">
+      <div class="shadow ring-1 dark:ring-gray-700 ring-black ring-opacity-5 lg:flex lg:flex-auto w-full lg:flex-col">
+        <div class="grid grid-cols-7 gap-px border-b border-gray-300 dark:border-gray-700 bg-gray-200 dark:bg-gray-700 text-center text-xs font-semibold leading-6 text-gray-700 lg:flex-none">
+          <% date_range.slice(0, 7).each do |day| %>
+            <div class="flex justify-center bg-white py-2 dark:bg-gray-900 dark:text-white">
+              <% label = t('date.abbr_day_names')[day.wday] %>
+              <span><%= label.first %></span>
+              <span class="sr-only sm:not-sr-only"><%= label[1..-1] %></span>
+            </div>
+          <% end %>
+        </div>
+        <div class="flex bg-gray-200 text-xs leading-6 text-gray-700 lg:flex-auto dark:bg-gray-700">
+          <div class="hidden w-full lg:grid lg:grid-cols-7 lg:grid-rows-<%= date_range.each_slice(7).size %>> lg:gap-px">
+            <% date_range.each_slice(7) do |week| %>
+              <% week.each do |day| %>
+                <% styles = calendar.classes_for_calendar_day(day) %>
+                <%= content_tag :div, class: styles[:div] do %>
+                  <div class="flex w-full items-center justify-center">
+                    <%= content_tag :time, class: styles[:time], datetime: day do %>
+                      <%= day.day %>
+                    <% end %>
+                  </div>
+                  <% instance_exec(day, calendar.sorted_events_for(day), &passed_block) %>
+                  <%# if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
+                  <%# capture_haml(day, sorted_events.fetch(day, []), &block) %>
+                  <%# else %>
+                  <%# block.call day, sorted_events.fetch(day, []) %>
+                  <%# end %>
+                <% end %>
+              <% end %>
+            <% end %>
+
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+  <div class="flex flex-initial flex-col items-center justify-center px-6 pt-[4.1rem] h-full ">
+    <h1 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
+      <%= t('date.month_names')[start_date.month] %> Summary:
+    </h1>
+    <div>
+      <ul role="list" class="divide-y divide-gray-100 h-[600px] overflow-x-auto">
+        <% @summary.each do |stat| %>
+          <li class="py-2 px-2">
+            <div class="flex items-center gap-x-3">
+              <h3 class="flex-auto truncate text-sm font-semibold leading-6 text-gray-900 dark:text-white"><%= stat.type_name %></h3>
+              <% unless stat.total_price.nil? || stat.total_price == 0 %>
+                <h3 class="flex-none text-xs text-gray-500 dark:text-white"><%= stat.total_price %></h3>
+              <% end %>
+            </div>
+            <!--          TODO: price should only be render if !== 0 or price nil-->
+            <p class="mt-1 truncate text-sm text-gray-500">Occurrences: <%= stat.count %>x.
+              <% unless stat.price.nil? || stat.price == 0 %>
+                Price: <%= stat.price %>
+              <% end %>
 
-
-<div class="flex w-full flex-col items-center justify-center mt-10">
-  <h1 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
-    <%= t('date.month_names')[start_date.month] %> Summary:
-  </h1>
-  <div>
-    <ul role="list" class="divide-y divide-gray-100">
-      <% @summary.each do |stat| %>
-        <li class="py-1">
-          <div class="flex items-center gap-x-3">
-            <h3 class="flex-auto truncate text-sm font-semibold leading-6 text-gray-900 dark:text-white"><%= stat.type_name %></h3>
-            <h3 class="flex-none text-xs text-gray-500 dark:text-white"><%= stat.total_price %></h3>
-          </div>
-          <p class="mt-1 truncate text-sm text-gray-500">Occurrences: <%= stat.count %>x. Price: <%= stat.price %>
-        </li>
-      <% end %>
-    </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>

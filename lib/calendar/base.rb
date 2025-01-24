@@ -54,31 +54,6 @@ module Calendar
       { div:, time: }
     end
 
-    # def td_classes_for(day)
-    #   today = Date.current
-    #
-    #   td_class = ["day"]
-    #   td_class << "wday-#{day.wday}"
-    #   td_class << "today" if today == day
-    #   td_class << "past" if today > day
-    #   td_class << "future" if today < day
-    #   td_class << "start-date" if day.to_date == start_date.to_date
-    #   td_class << "prev-month" if start_date.month != day.month && day < start_date
-    #   td_class << "next-month" if start_date.month != day.month && day > start_date
-    #   td_class << "current-month" if start_date.month == day.month
-    #   td_class << "has-events" if sorted_events.fetch(day, []).any?
-    #
-    #   td_class
-    # end
-
-    # def tr_classes_for(week)
-    #   today = Date.current
-    #   tr_class = ["week"]
-    #   tr_class << "current-week" if week.include?(today)
-    #
-    #   tr_class
-    # end
-
     def url_for_next_view
       view_context.url_for(@params.merge(start_date_param => (date_range.last + 1.day).iso8601))
     end
