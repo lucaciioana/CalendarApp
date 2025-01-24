@@ -2,6 +2,7 @@ class EventType < ApplicationRecord
   belongs_to :creator, class_name: :User
   has_many :events, dependent: :restrict_with_exception
   validates :name, presence: true
+  validates :price, numericality: { allow_nil: true }
   scope :created_by, ->(creator) { where(creator: creator) }
 
   def self.is_deletable(ids)
