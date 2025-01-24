@@ -10,8 +10,6 @@ class User < ApplicationRecord
   end
 
   has_many :sessions, dependent: :destroy
-  has_many :recovery_codes, dependent: :destroy
-  has_many :sign_in_tokens, dependent: :destroy
   has_many :auth_events, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
@@ -25,10 +23,6 @@ class User < ApplicationRecord
 
   before_validation if: :email_changed?, on: :update do
     self.verified = false
-  end
-
-  before_validation on: :create do
-    self.otp_secret = ROTP::Base32.random
   end
 
   after_update if: :password_digest_previously_changed? do

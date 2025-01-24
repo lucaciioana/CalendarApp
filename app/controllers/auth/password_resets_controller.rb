@@ -1,4 +1,4 @@
-class Identity::PasswordResetsController < ApplicationController
+class Auth::PasswordResetsController < ApplicationController
   skip_before_action :authenticate
 
   rate_limit to: 10, within: 1.hour, only: :create, with: -> { redirect_to root_path, alert: "Try again later" }
@@ -15,7 +15,7 @@ class Identity::PasswordResetsController < ApplicationController
       send_password_reset_email
       redirect_to sign_in_path, notice: "Check your email for reset instructions"
     else
-      redirect_to new_identity_password_reset_path, alert: "You can't reset your password until you verify your email"
+      redirect_to new_auth_password_reset_path, alert: "You can't reset your password until you verify your email"
     end
   end
 
@@ -31,7 +31,7 @@ class Identity::PasswordResetsController < ApplicationController
     def set_user
       @user = User.find_by_token_for!(:password_reset, params[:sid])
     rescue StandardError
-      redirect_to new_identity_password_reset_path, alert: "That password reset link is invalid"
+      redirect_to new_auth_password_reset_path, alert: "That password reset link is invalid"
     end
 
     def user_params

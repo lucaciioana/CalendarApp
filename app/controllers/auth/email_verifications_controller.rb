@@ -1,4 +1,4 @@
-class Identity::EmailVerificationsController < ApplicationController
+class Auth::EmailVerificationsController < ApplicationController
   skip_before_action :authenticate, only: :show
 
   before_action :set_user, only: :show
@@ -17,7 +17,7 @@ class Identity::EmailVerificationsController < ApplicationController
     def set_user
       @user = User.find_by_token_for!(:email_verification, params[:sid])
     rescue StandardError
-      redirect_to edit_identity_email_path, alert: "That email verification link is invalid"
+      redirect_to edit_auth_email_path, alert: "That email verification link is invalid"
     end
 
     def send_email_verification

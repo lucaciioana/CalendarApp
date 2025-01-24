@@ -5,10 +5,10 @@
 <% else %>
   <h1>Verify your email</h1>
   <p>We sent a verification email to the address below. Check that email and follow those instructions to confirm it's your email address.</p>
-  <p><%= button_to "Re-send verification email", identity_email_verification_path %></p>
+  <p><%= button_to "Re-send verification email", auth_email_verification_path %></p>
 <% end %>
 
-<%= form_with(url: identity_email_path, method: :patch) do |form| %>
+<%= form_with(url: auth_email_path, method: :patch) do |form| %>
   <% if @user.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>

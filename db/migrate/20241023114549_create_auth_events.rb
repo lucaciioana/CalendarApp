@@ -1,4 +1,4 @@
-class CreateAuthEvents < ActiveRecord::Migration[8.1]
+class CreateAuthEvents < ActiveRecord::Migration[8.0]
   def change
     create_table :auth_events do |t|
       t.references :user, null: false, foreign_key: true
